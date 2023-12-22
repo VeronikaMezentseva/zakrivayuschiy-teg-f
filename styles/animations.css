@@ -36,3 +36,70 @@
     opacity: 1;
   }
 }
+
+.core {
+  fill: transparent;
+  transition: fill 0.03s linear;
+}
+
+.is-liked .core {
+  fill: var(--icon-sparks-color);
+  transition: fill 0.3s;
+}
+
+.is-liked .main-body {
+  fill: var(--icon-sparks-color);
+  transition: fill 0.3s;
+  transition-delay: 0.05s;
+}
+
+.is-liked .contour {
+  fill: var(--icon-sparks-color);
+  transition: fill 0.3s;
+  transition-delay: 0.06s;
+}
+
+.is-liked .sparks {
+  animation: sparks 0.3s ease-in alternate;
+  animation-delay: 0.3s;
+}
+
+.card__icon-button:hover .is-liked .main-body,
+.card__icon-button:hover .is-liked .core {
+  fill: var(--icon-sparks-color);
+}
+
+.is-liked .heart {
+  animation: heart-scale 0.3s ease-in alternate;
+  animation-delay: 0.1s;
+}
+
+.main-body {
+  fill: transparent;
+  transition: fill 0.3s;
+}
+
+.card__icon-button:hover .main-body {
+  fill: var(--accent-color);
+  transition: fill 0.3s linear;
+  transition-delay: 0.05s;
+}
+
+.card__icon-button:active .core,
+.card__icon-button:active .main-body {
+  fill: var(--icon-sparks-color);
+  transition: fill 0.3s linear;
+}
+
+.card__icon-button:hover .core {
+  fill: var(--accent-color);
+  transition: fill 0.3s linear;
+}
+
+.sparks {
+  opacity: 0;
+}
+
+.heart {
+  transform-origin: center center;
+}

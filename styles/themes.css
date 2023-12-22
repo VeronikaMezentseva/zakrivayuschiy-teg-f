@@ -6,45 +6,42 @@
 */
 
 :root.theme-light {
-  --main-font: 'Inter-Variable';
-  --accent-font: 'Press Start 2P';
   --bold-font-weight: 700;
   --normal-font-weight: 400;
   --bg-color: #fff;
   --accent-color: #000;
+  --text-button-color: #fff;
   --bg-pattern: repeating-linear-gradient(90deg, #d3d3d3 0 2px, transparent 2px 4px),
   repeating-linear-gradient(to bottom, #d3d3d3 0 2px, transparent 2px 4px),
   linear-gradient(to bottom, #e7e7e7 0 0.01%, #1a1a1a);
-  --cards-width: 48.333%;
+  --cards-width: clamp(23.19rem, 16.039rem + 30.513vw, 43.5rem);
   --icon-sparks-color: #FF0000;
 }
 
 :root.theme-dark {
-  --main-font: 'Inter-Variable';
-  --accent-font: 'Press Start 2P';
   --bold-font-weight: 785;
   --normal-font-weight: 465;
   --bg-color: #000;
   --accent-color: #00CC14;
+  --text-button-color: #00CC14;
   --bg-pattern: repeating-linear-gradient(90deg, #000 0 2px, transparent 2px 4px),
   repeating-linear-gradient(to bottom, #000 0 2px, transparent 2px 4px),
   linear-gradient(to bottom, #007f0c, #004306);
-  --cards-width: 48.333%;
+  --cards-width: clamp(23.19rem, 16.039rem + 30.513vw, 43.5rem);
   --icon-sparks-color: #FF0000;
 }
 
 @media (prefers-color-scheme: dark) {
   :root.theme-auto {
-    --main-font: 'Inter-Variable';
-    --accent-font: 'Press Start 2P';
     --bold-font-weight: 785;
     --normal-font-weight: 465;
     --bg-color: #000;
     --accent-color: #00CC14;
+    --text-button-color: #00CC14;
     --bg-pattern: repeating-linear-gradient(90deg, #000 0 2px, transparent 2px 4px),
     repeating-linear-gradient(to bottom, #000 0 2px, transparent 2px 4px),
     linear-gradient(to bottom, #007f0c, #004306);
-    --cards-width: 48.333%;
+    --cards-width: clamp(23.19rem, 16.039rem + 30.513vw, 43.5rem);
     --icon-sparks-color: #FF0000;
   }
 }

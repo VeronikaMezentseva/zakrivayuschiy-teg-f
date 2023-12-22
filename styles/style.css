@@ -16,7 +16,7 @@
 
 .page {
   color: var(--accent-color);
-  font-family: var(--main-font, 'sans-serif');
+  font-family: var(--main-font, "sans-serif");
   background-color: var(--bg-color);
   background-image: var(--bg-pattern);
   background-position: center;
@@ -24,7 +24,7 @@
   background-attachment: fixed;
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-variation-settings: 'WGHT' var(--normal-font-weight);
+  font-variation-settings: "WGHT" var(--normal-font-weight);
 }
 
 .header {
@@ -36,7 +36,7 @@
   padding-block-start: clamp(7.5rem, 7.148rem + 1.502vw, 8.5rem);
   padding-block-end: 19px;
   color: var(--accent-color);
-  font-family: var(--accent-font, 'sans-serif');
+  font-family: var(--accent-font, "fantasy");
   text-transform: uppercase;
   background-color: var(--bg-color);
 }
@@ -45,7 +45,7 @@
   width: var(--cards-width);
 }
 
-.header__title-container {
+.header__container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -53,11 +53,15 @@
   margin-block-end: 23px;
 }
 
-.header__title {
+.header__logo {
   font-size: clamp(3.06rem, 2.708rem + 1.502vw, 4.06rem);
 }
 
-.header__paragraph {
+.header__logo-link {
+  text-decoration: none;
+}
+
+.header__title {
   font-size: clamp(0.88rem, 0.683rem + 0.841vw, 1.44rem);
 }
 
@@ -77,32 +81,29 @@
   font-size: 14px;
   text-transform: uppercase;
   background-color: var(--bg-color);
-  font-variation-settings: 'WGHT' var(--normal-font-weight);
+  font-variation-settings: "WGHT" var(--normal-font-weight);
 }
 
 .theme-menu__button:hover {
-  opacity: .6;
+  opacity: 0.6;
   transition: opacity 0.3s ease;
   cursor: pointer;
 }
 
 .theme-menu__button:disabled {
-  opacity: .6;
+  opacity: 0.6;
   pointer-events: none;
 }
 
 .theme-menu__button:disabled::before {
-  content: '▶';
+  content: "▶";
   position: absolute;
   left: -14px;
-  display: block;
-  width: 16px;
-  height: 13px;
-  animation: moving-arrow .5s ease-in-out infinite alternate;
+  animation: moving-arrow 0.5s ease-in-out infinite alternate;
 }
 
 .theme-menu__button::after {
-  content: '';
+  content: "";
   display: block;
   width: 100%;
   height: 2px;
@@ -143,7 +144,7 @@
   padding: 5px 9px;
   font-size: 18px;
   line-height: 116.667%; /* 116.667% */
-  font-variation-settings: 'WGHT' var(--bold-font-weight);
+  font-variation-settings: "WGHT" var(--bold-font-weight);
 }
 
 .card__image-container {
@@ -158,20 +159,23 @@
   right: 23px;
   z-index: 1;
   opacity: 0.5;
-  font-family: var(--accent-font, 'sans-serif');
+  font-family: var(--accent-font, "fantasy");
   font-size: 14px;
-  text-shadow: 1px 1px 0 var(--bg-color), -1px -1px 0 var(--bg-color), -1px 1px 0 var(--bg-color), 1px -1px 0 var(--bg-color);
+  text-shadow: 1px 1px 0 var(--bg-color), -1px -1px 0 var(--bg-color),
+    -1px 1px 0 var(--bg-color), 1px -1px 0 var(--bg-color);
   mix-blend-mode: hard-light;
 }
 
-@supports((text-stroke: var(--bg-color)) or (-webkit-text-stroke: 1px var(--bg-color))) {
+@supports (
+  (text-stroke: var(--bg-color)) or (-webkit-text-stroke: 1px var(--bg-color))
+) {
   .card__label {
-      -webkit-text-stroke: 0.5px var(--bg-color);
-      text-stroke: 0.5px var(--bg-color);
-      /* text-shadow: 1px 2px 0 var(--accent-color), 1px 2px 0 var(--accent-color), 1px 1px 0 var(--accent-color), 1px 1px 0 var(--accent-color); */
-      /* text-shadow: none; */
-    }
-} 
+    -webkit-text-stroke: 0.5px var(--bg-color);
+    text-stroke: 0.5px var(--bg-color);
+    /* text-shadow: 1px 2px 0 var(--accent-color), 1px 2px 0 var(--accent-color), 1px 1px 0 var(--accent-color), 1px 1px 0 var(--accent-color); */
+    /* text-shadow: none; */
+  }
+}
 
 .card__image {
   width: 100%;
@@ -243,87 +247,20 @@
   cursor: pointer;
 }
 
-.core {
-  fill: transparent;
-  transition: fill 0.03s linear;
-}
-
-.card__icon-button:hover .core {
-  fill: var(--accent-color);
-  transition: fill 0.3s linear;
-}
-
-.main-body {
-  fill: transparent;
-  transition: fill 0.3s;
-}
-
-.card__icon-button:hover .main-body {
-  fill: var(--accent-color);
-  transition: fill 0.3s linear;
-  transition-delay: 0.05s;
-}
-
-.card__icon-button:active .core,
-.card__icon-button:active .main-body {
-  fill: var(--icon-sparks-color);
-  transition: fill 0.3s linear;
-}
-
-.sparks {
-  opacity: 0;
-}
-
-.is-liked .core {
-  fill: var(--icon-sparks-color);
-  transition: fill 0.3s;
-}
-
-.is-liked .main-body {
-  fill: var(--icon-sparks-color);
-  transition: fill 0.3s;
-  transition-delay: 0.05s;
-}
-
-.is-liked .contour {
-  fill: var(--icon-sparks-color);
-  transition: fill 0.3s;
-  transition-delay: 0.06s;
-}
-
-.is-liked .sparks {
-  animation: sparks 0.3s ease-in alternate;
-  animation-delay: 0.3s;
-}
-
-.card__icon-button:hover .is-liked .main-body,
-.card__icon-button:hover .is-liked .core {
-  fill: var(--icon-sparks-color);
-}
-
-.heart {
-  transform-origin: center center;
-}
-
-.is-liked .heart {
-  animation: heart-scale 0.3s ease-in alternate;
-  animation-delay: 0.1s;
-}
-
 /*общие стили кнопок*/
 
 .button {
   position: relative;
   border: 2px solid var(--accent-color);
   overflow: hidden;
-  font-family: var(--accent-font, 'sans-serif');
+  font-family: var(--accent-font, "fantasy");
   font-size: 14px;
   background-color: var(--bg-color);
   cursor: pointer;
 }
 
 .button::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background-color: var(--accent-color);
@@ -353,14 +290,8 @@
 .button__text {
   position: relative;
   z-index: 1;
-  color: var(--bg-color);
+  color: var(--text-button-color);
   mix-blend-mode: difference;
-}
-
-.footer {
-  display: flex;
-  justify-content: center;
-  margin-block-end: 105px;
 }
 
 .diskette-button {
@@ -369,13 +300,13 @@
   align-items: center;
   gap: 8px;
   width: clamp(19.13rem, 18.493rem + 2.719vw, 20.94rem);
-  padding: 15px 0;
+  padding: 13px 0;
 }
 
 .diskette {
   min-width: 21px;
   height: 21px;
-  fill: var(--bg-color);
+  fill: var(--text-button-color);
   mix-blend-mode: difference;
 }
 
@@ -386,7 +317,6 @@
 
 .dialog {
   width: clamp(21.31rem, 20.958rem + 1.502vw, 22.31rem);
-  height: 193px;
   border: 2px solid var(--accent-color);
   padding: 29px 31px;
   background-color: var(--bg-color);
@@ -402,14 +332,14 @@
 
 .dialog__paragraph {
   color: var(--accent-color);
-  font-family: var(--accent-font, 'sans-serif');
+  font-family: var(--accent-font, "fantasy");
   font-size: 14px;
   line-height: 150%; /* 21px */
 }
 
 .dialog__button {
   width: 100%;
-  height: 38px;
+  padding: 9px 0;
   text-transform: uppercase;
 }
 
@@ -436,25 +366,5 @@
   .diskette-button .diskette {
     width: 28px;
     height: 28px;
-  }
-}
-
-/*-------------THEMES--------------*/
-
-.theme-dark .button__text {
-  color: var(--accent-color);
-}
-
-.theme-dark .diskette {
-  fill: var(--accent-color);
-}
-
-@media (prefers-color-scheme: dark) {
-  .theme-auto .button__text {
-    color: var(--accent-color);
-  }
-
-  .theme-auto .diskette {
-    fill: var(--accent-color);
   }
 }
