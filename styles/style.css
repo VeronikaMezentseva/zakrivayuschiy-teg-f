@@ -18,17 +18,13 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--main-font, 'sans-serif');
-  /* font-variation-settings: 'wght' var(--normal-font-weight); */
+  font-variation-settings: 'WGHT' var(--normal-font-weight);
   background-color: var(--bg-color);
   color: var(--accent-color);
   background-image: var(--bg-pattern);
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; */
 }
 
 .header {
@@ -84,7 +80,14 @@
   text-transform: uppercase;
 }
 
+.theme-menu__button:hover {
+  opacity: .6;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
 .theme-menu__button:disabled {
+  pointer-events: none;
   opacity: .6;
 }
 
@@ -136,7 +139,7 @@
 }
 
 .card__title {
-  outline: 2px solid var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
   padding: 5px 9px;
   line-height: 116.667%; /* 116.667% */
   font-weight: var(--bold-font-weight);
@@ -145,24 +148,68 @@
 
 .card__image-container {
   position: relative;
+  aspect-ratio: 1 / 1;
+  border-bottom: 2px solid var(--accent-color);
 }
 
 .card__label {
+  z-index: 1;
   position: absolute;
-  right: 25px;
-  top: 25px;
+  right: 23px;
+  top: 27px;
   font-family: var(--accent-font);
-  text-shadow: 2px 2px 0 var(--bg-color), -2px -2px 0 var(--bg-color), -1px 2px 0 var(--bg-color), 2px 1px 0 var(--bg-color);
+  text-shadow: 1px 1px 0 var(--bg-color), -1px -1px 0 var(--bg-color), -1px 1px 0 var(--bg-color), 1px -1px 0 var(--bg-color);
   opacity: 0.5;
   mix-blend-mode: hard-light;
   font-size: 14px;
 }
 
+@supports((text-stroke: var(--bg-color)) or (-webkit-text-stroke: 1px var(--bg-color))) {
+  .card__label {
+      -webkit-text-stroke: 0.5px var(--bg-color);
+      text-stroke: 0.5px var(--bg-color);
+      /* text-shadow: 1px 2px 0 var(--accent-color), 1px 2px 0 var(--accent-color), 1px 1px 0 var(--accent-color), 1px 1px 0 var(--accent-color); */
+      /* text-shadow: none; */
+    }
+} 
+
 .card__image {
   width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center;
-  outline: 2px solid var(--accent-color);
+}
+
+.mario {
+  filter: contrast(1.5);
+}
+
+.homer {
+  filter: saturate(1.9);
+}
+
+.finish {
+  filter: grayscale(1) contrast(1.3) brightness(1.2);
+}
+
+.paradise {
+  filter: hue-rotate(15deg) contrast(1.5);
+}
+
+.ninja {
+  filter: invert(0.9);
+}
+
+.tetris {
+  filter: hue-rotate(-90deg);
+}
+
+.fail {
+  filter: blur(4px);
+}
+
+.undertale {
+  filter: brightness(150%);
 }
 
 .card__text-container {
@@ -228,7 +275,7 @@
   transition: 0.3s;
 }
 
-.is-liked .main-body{
+.is-liked .main-body {
   fill: var(--icon-sparks-color);
   transition: 0.3s;
   transition-delay: 0.05s;
@@ -289,6 +336,7 @@
 
 .button:focus-visible {
   box-shadow: 2px 2px 0 var(--accent-color);
+  transition: box-shadow 0.3s ease;
 }
 
 /*-----------*/
@@ -309,10 +357,6 @@
   justify-content: center;
 }
 
-.diskette {
-  mix-blend-mode: difference;
-}
-
 .diskette-button {
   width: clamp(19.13rem, 18.493rem + 2.719vw, 20.94rem);
   display: flex;
@@ -326,6 +370,7 @@
   min-width: 21px;
   height: 21px;
   fill: var(--bg-color);
+  mix-blend-mode: difference;
 }
 
 .dialog-container .diskette {
@@ -388,7 +433,7 @@
   }
 }
 
-/*------------------------------THEMES-------------------*/
+/*-------------THEMES--------------*/
 
 .theme-dark .button__text {
   color: var(--accent-color);

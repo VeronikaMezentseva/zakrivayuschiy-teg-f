@@ -10,6 +10,6 @@
   --bg-pattern: repeating-linear-gradient(90deg, #d3d3d3 0 2px, transparent 2px 4px),
   repeating-linear-gradient(to bottom, #d3d3d3 0 2px, transparent 2px 4px),
   linear-gradient(to bottom, #e7e7e7 0 0.01%, #1a1a1a);
-  --cards-width: 48.333%; /*возможно поменяется на кламп*/
+  --cards-width: 48.333%;
   --icon-sparks-color: #FF0000;
 }
